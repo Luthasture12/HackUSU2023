@@ -12,6 +12,11 @@ namespace HackUSU2023.Content
     {
         public delegate void KeyAction(GameTime gameTime);
 
+        public TimeSpan elapsed;
+        public TimeSpan threshold = new TimeSpan(0, 0, 0, 0, 100);
+
+        public List<KeyEntry> suppressed;
+
         public List<KeyEntry> entries;
         public class KeyEntry
         {
@@ -32,6 +37,8 @@ namespace HackUSU2023.Content
         public KeyboardHandler()
         {
             entries = new List<KeyEntry>();
+            suppressed = new List<KeyEntry>();
+            elapsed = TimeSpan.Zero;
         }
 
         public void addEntry(KeyEntry e)
@@ -41,14 +48,49 @@ namespace HackUSU2023.Content
 
         public void update(GameTime gameTime)
         {
-            foreach (KeyEntry e in entries)
+            elapsed += gameTime.ElapsedGameTime;
+            if (elapsed < threshold)
             {
-                var state = Keyboard.GetState().IsKeyDown(e.key);
-                if (state)
+                elapsed -= threshold;
+                List<KeyEntry> doneBeingSuppressed = new List<KeyEntry>();
+                foreach (KeyEntry e in suppressed)
                 {
-                    e.action(gameTime);
+                    var state = Keyboard.GetState().IsKeyUp(e.key);
+                    if (state)
+                    {
+                        e.action(gameTime);
+                        if (e.pressOnly)
+                        {
+                            entries.Add(e);
+                            doneBeingSuppressed.Add(e);
+                        }
+                    }
+                }
+                foreach (KeyEntry keyEntry in doneBeingSuppressed)
+                {
+                    suppressed.Remove(keyEntry);
+                }
+                foreach (KeyEntry e in entries)
+                {
+                    var state = Keyboard.GetState().IsKeyDown(e.key);
+                    if (state)
+                    {
+                        e.action(gameTime);
+                        if (e.pressOnly)
+                        {
+                            suppressed.Add(e);
+                        }
+                    }
+                }
+                foreach (KeyEntry entry in suppressed)
+                {
+                    if (entries.Contains(entry))
+                    {
+                        entries.Remove(entry);
+                    }
                 }
             }
+            
         }
     }
 }

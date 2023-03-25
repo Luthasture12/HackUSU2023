@@ -17,9 +17,9 @@ namespace HackUSU2023
 
         public MainMenu(GraphicsDeviceManager graphics, SpriteBatch spriteBatch, MainGame mainGame) : base(graphics, spriteBatch, mainGame) 
         {
-            keyboardHandler.addEntry(new Content.KeyboardHandler.KeyEntry(Microsoft.Xna.Framework.Input.Keys.W, moveMenuUp, false));
-            keyboardHandler.addEntry(new Content.KeyboardHandler.KeyEntry(Microsoft.Xna.Framework.Input.Keys.S, moveMenuDown, false));
-            keyboardHandler.addEntry(new Content.KeyboardHandler.KeyEntry(Microsoft.Xna.Framework.Input.Keys.Enter, selectMenuOption, false));
+            keyboardHandler.addEntry(new Content.KeyboardHandler.KeyEntry(Microsoft.Xna.Framework.Input.Keys.W, moveMenuUp, true));
+            keyboardHandler.addEntry(new Content.KeyboardHandler.KeyEntry(Microsoft.Xna.Framework.Input.Keys.S, moveMenuDown, true));
+            keyboardHandler.addEntry(new Content.KeyboardHandler.KeyEntry(Microsoft.Xna.Framework.Input.Keys.Enter, selectMenuOption, true));
 
         }
 
@@ -46,10 +46,10 @@ namespace HackUSU2023
 
         private void moveMenuDown(GameTime gameTime) 
         {
-            if (position == menuOptions.Length - 1)
+            /*if (position == menuOptions.Length - 1)
             {
                 position = 0;
-            }
+            }*/
             
             if (position < menuOptions.Length - 1) 
             {
@@ -59,10 +59,10 @@ namespace HackUSU2023
 
         private void moveMenuUp(GameTime gameTime)
         {
-            if (position == 0)
+            /*if (position == 0)
             {
                 position = menuOptions.Length - 1;
-            }
+            }*/
 
             if (position > 0) 
             {
