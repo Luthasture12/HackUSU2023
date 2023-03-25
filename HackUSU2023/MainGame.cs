@@ -29,6 +29,16 @@ namespace HackUSU2023
             IsMouseVisible = true;
         }
 
+        public SpriteFont MainFont
+        {
+            get { return mainFont; }
+        }
+
+        public SpriteFont LargerFont
+        {
+            get { return largerFont; }
+        }
+
         protected override void Initialize()
         {
             _graphics.PreferredBackBufferHeight = 1080;
@@ -37,6 +47,7 @@ namespace HackUSU2023
             _graphics.ApplyChanges();
 
             gameStates = new Stack<GameState>();
+            
             base.Initialize();
         }
 
@@ -45,14 +56,26 @@ namespace HackUSU2023
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             skin = Content.Load<Texture2D>("images/Main_test");
+            mainFont = Content.Load<SpriteFont>("fonts/RobotoNormal");
+            largerFont = Content.Load<SpriteFont>("fonts/RobotoBigger");
+
+            gameStates.Push(new WorldState(_graphics, _spriteBatch, this));
         }
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            //    Exit();
 
-            // TODO: Add your update logic here
+            var topState = gameStates.Peek();
+            bool shouldPop = topState.update(gameTime);
+            if (shouldPop)
+            {
+                gameStates.Pop();
+            }
+
+            if (gameStates.Count == 0)
+                Exit();
 
             base.Update(gameTime);
         }
@@ -64,7 +87,10 @@ namespace HackUSU2023
             // TODO: Add your drawing code here
 
             _spriteBatch.Begin();
-            //_spriteBatch.Draw(skin, new Rectangle(100, 100, 64, 64), Color.White);
+            foreach (GameState state in gameStates)
+            {
+                state.draw(gameTime);
+            }
             _spriteBatch.End();
 
             base.Draw(gameTime);

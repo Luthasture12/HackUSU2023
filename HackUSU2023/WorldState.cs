@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,15 +13,19 @@ namespace HackUSU2023
     {
         public override void draw(GameTime gameTime)
         {
-            throw new NotImplementedException();
+            spriteBatch.DrawString(mainGame.MainFont, "World", new Vector2(100, 100), Color.White);
         }
 
         public override bool update(GameTime gameTime)
         {
-            throw new NotImplementedException();
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+            {
+                return true;
+            }
+            return false;
         }
 
-        public WorldState(GraphicsDeviceManager graphics, SpriteBatch spriteBatch) : base(graphics, spriteBatch)
+        public WorldState(GraphicsDeviceManager graphics, SpriteBatch spriteBatch, MainGame mainGame) : base(graphics, spriteBatch, mainGame)
         {
             
         }
