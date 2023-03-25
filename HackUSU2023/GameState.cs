@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using HackUSU2023.Content;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace HackUSU2023
     {
         protected GraphicsDeviceManager graphics;
         protected SpriteBatch spriteBatch;
+        protected KeyboardHandler keyboardHandler;
         abstract public bool update(GameTime gameTime);
 
         abstract public void draw(GameTime gameTime);
@@ -20,6 +22,7 @@ namespace HackUSU2023
         {
             this.graphics = graphics;
             this.spriteBatch = spriteBatch;
+            this.keyboardHandler = new KeyboardHandler();
         }
     }
 }

@@ -44,7 +44,7 @@ namespace HackUSU2023
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            skin = Content.Load<Texture2D>("images/Main");
+            skin = Content.Load<Texture2D>("images/Main_test");
         }
 
         protected override void Update(GameTime gameTime)
@@ -64,7 +64,7 @@ namespace HackUSU2023
             // TODO: Add your drawing code here
 
             _spriteBatch.Begin();
-            
+            //_spriteBatch.Draw(skin, new Rectangle(100, 100, 64, 64), Color.White);
             _spriteBatch.End();
 
             base.Draw(gameTime);
