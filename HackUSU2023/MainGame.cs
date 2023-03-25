@@ -97,9 +97,14 @@ namespace HackUSU2023
             // TODO: Add your drawing code here
 
             _spriteBatch.Begin();
-            foreach (GameState state in gameStates)
+            var states = gameStates.ToArray();
+            for (int i = 0; i < states.Length; i++)
             {
-                state.draw(gameTime);
+                states[i].draw(gameTime);
+                if (states[i].isFullScreen())
+                {
+                    break;
+                }
             }
             _spriteBatch.End();
 

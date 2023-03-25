@@ -19,6 +19,11 @@ namespace HackUSU2023
 
         abstract public void draw(GameTime gameTime);
 
+        virtual public bool isFullScreen()
+        {
+            return true;
+        }
+
         public GameState(GraphicsDeviceManager graphics, SpriteBatch spriteBatch, MainGame mainGame)
         {
             this.graphics = graphics;
