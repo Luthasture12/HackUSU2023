@@ -46,25 +46,25 @@ namespace HackUSU2023
 
         private void moveMenuDown(GameTime gameTime) 
         {
-            /*if (position == menuOptions.Length - 1)
+            if (position == menuOptions.Length - 1)
             {
                 position = 0;
-            }*/
+            }
             
-            if (position < menuOptions.Length - 1) 
+            else
             {
                 position++;
             }
         }
-
+        
         private void moveMenuUp(GameTime gameTime)
         {
-            /*if (position == 0)
+            if (position == 0)
             {
                 position = menuOptions.Length - 1;
-            }*/
+            }
 
-            if (position > 0) 
+            else 
             {
                 position--;
             }
