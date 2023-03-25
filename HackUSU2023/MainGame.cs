@@ -32,6 +32,12 @@ namespace HackUSU2023
             IsMouseVisible = true;
         }
 
+
+        public void pushState(GameState state)
+        {
+            gameStates.Push(state);
+        }
+
         public SpriteFont MainFont
         {
             get { return mainFont; }
@@ -63,7 +69,7 @@ namespace HackUSU2023
             mainFont = Content.Load<SpriteFont>("fonts/RobotoNormal");
             largerFont = Content.Load<SpriteFont>("fonts/RobotoBigger");
 
-            gameStates.Push(new WorldState(_graphics, _spriteBatch, this));
+            gameStates.Push(new MainMenu(_graphics, _spriteBatch, this));
         }
 
         protected override void Update(GameTime gameTime)

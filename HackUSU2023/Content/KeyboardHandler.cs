@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HackUSU2023.Content
 {
-    internal class KeyboardHandler
+    public class KeyboardHandler
     {
         public delegate void KeyAction(GameTime gameTime);
 

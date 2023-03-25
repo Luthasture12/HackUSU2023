@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HackUSU2023
 {
-    internal abstract class GameState
+    public abstract class GameState
     {
         protected GraphicsDeviceManager graphics;
         protected SpriteBatch spriteBatch;
