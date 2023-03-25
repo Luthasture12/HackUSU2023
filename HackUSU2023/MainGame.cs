@@ -9,6 +9,7 @@ namespace HackUSU2023
 {
     public class MainGame : Game
     {
+        public Texture2D textBoxFiller;
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
@@ -24,6 +25,7 @@ namespace HackUSU2023
         private Stack<GameState> gameStates;
 
         public Texture2D main_sprite_sheet;
+        public Texture2D m_karol_sprite_sheet;
 
         public MainGame()
         {
@@ -66,6 +68,8 @@ namespace HackUSU2023
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             main_sprite_sheet = Content.Load<Texture2D>("images/Main_Sprite_Sheet");
+            m_karol_sprite_sheet = Content.Load<Texture2D>("images/M_Karol_sprite_sheet");
+            textBoxFiller = Content.Load<Texture2D>("images/blank-square");
 
 
             mainFont = Content.Load<SpriteFont>("fonts/RobotoNormal");

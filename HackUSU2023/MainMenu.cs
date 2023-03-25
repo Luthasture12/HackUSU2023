@@ -78,7 +78,7 @@ namespace HackUSU2023
             }
             else if (position == 1)
             {
-                mainGame.pushState(new Credits(graphics, spriteBatch, mainGame));
+               mainGame.pushState(new Credits(graphics, spriteBatch, mainGame));
             }
             else
             {
