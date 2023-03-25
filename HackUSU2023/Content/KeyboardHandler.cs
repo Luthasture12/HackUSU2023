@@ -58,7 +58,6 @@ namespace HackUSU2023.Content
                     var state = Keyboard.GetState().IsKeyUp(e.key);
                     if (state)
                     {
-                        e.action(gameTime);
                         if (e.pressOnly)
                         {
                             entries.Add(e);
