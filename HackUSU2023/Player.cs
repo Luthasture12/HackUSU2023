@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HackUSU2023
 {
-    internal class Player : Entity
+    public class Player : Entity
     {
         public Player() 
         { 
@@ -14,6 +14,6 @@ namespace HackUSU2023
             height = 64;
         }
 
-
+        
     }
 }

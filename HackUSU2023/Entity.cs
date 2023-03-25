@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HackUSU2023
 {
-    internal class Entity
+    public abstract class Entity
     {
         protected int x;
         protected int y;
@@ -36,15 +36,7 @@ namespace HackUSU2023
             set { height = value; }
         }
 
-
-
         public Entity() { }
-
-
-
-
-
-
 
     }
 }

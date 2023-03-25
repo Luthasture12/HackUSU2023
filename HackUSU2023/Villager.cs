@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HackUSU2023
 {
-    internal class Villager: Entity
+    public class Villager : Entity
     {
         private String[] dialogue;
 
@@ -19,8 +19,7 @@ namespace HackUSU2023
         public int getRandomDialogue()
         {
             Random randomizer = new Random();
-            int dialogueChoice = randomizer.Next(dialogue.Length);
-            return dialogueChoice;
+            return randomizer.Next(dialogue.Length);
         }
 
         public Villager() 

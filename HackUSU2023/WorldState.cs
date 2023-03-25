@@ -14,6 +14,8 @@ namespace HackUSU2023
         public override void draw(GameTime gameTime)
         {
             spriteBatch.DrawString(mainGame.MainFont, "World", new Vector2(100, 100), Color.White);
+
+            spriteBatch.Draw(mainGame.main_sprite_sheet, new Vector2(200, 200), Color.White);
         }
 
         public override bool update(GameTime gameTime)

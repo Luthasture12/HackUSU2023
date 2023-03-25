@@ -23,7 +23,7 @@ namespace HackUSU2023
 
         private Stack<GameState> gameStates;
 
-        public Texture2D skin;
+        public Texture2D main_sprite_sheet;
 
         public MainGame()
         {
@@ -65,7 +65,9 @@ namespace HackUSU2023
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            skin = Content.Load<Texture2D>("images/Main_test");
+            main_sprite_sheet = Content.Load<Texture2D>("images/Main_Sprite_Sheet");
+
+
             mainFont = Content.Load<SpriteFont>("fonts/RobotoNormal");
             largerFont = Content.Load<SpriteFont>("fonts/RobotoBigger");
 
