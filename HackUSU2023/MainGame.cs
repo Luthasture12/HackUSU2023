@@ -15,6 +15,9 @@ namespace HackUSU2023
         //private Dictionary<int, Texture2D> textures;
         //private Dictionary<int, Song> songs;
 
+        public static int screenWidth = 1920;
+        public static int screenHeight = 1080;
+
         private SpriteFont mainFont;
         private SpriteFont largerFont;
 
@@ -43,6 +46,7 @@ namespace HackUSU2023
         {
             _graphics.PreferredBackBufferHeight = 1080;
             _graphics.PreferredBackBufferWidth = 1920;
+
 
             _graphics.ApplyChanges();
 
